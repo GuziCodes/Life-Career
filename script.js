@@ -3,63 +3,49 @@ document.addEventListener("DOMContentLoaded", () => {
     const mainVideo = document.getElementById("mainVideo");
     const mainVideoTitle = document.getElementById("mainVideoTitle");
 
+    // BUTTONS (but note: some will be disabled for YouTube)
     const btnPlay = document.getElementById("mainPlay");
     const btnPause = document.getElementById("mainPause");
     const btnMute = document.getElementById("mainMute");
     const btnSpeed = document.getElementById("mainSpeed");
     const btnFullscreen = document.getElementById("mainFullscreen");
 
-
+    // LOAD VIDEO FROM SIDEBAR
     document.querySelectorAll(".video-item").forEach(item => {
         item.addEventListener("click", () => {
+
             const src = item.dataset.src;
             const title = item.dataset.title;
 
-            mainVideo.querySelector("source").src = src;
-            mainVideo.load();
-            mainVideo.play();
+            // Just update iframe src
+            mainVideo.src = src;
 
             mainVideoTitle.textContent = title;
         });
     });
 
-    btnPlay.addEventListener("click", () => {
-        mainVideo.play();
-    });
+    // ❌ These functions cannot work on YouTube iframe (disabled)
+    btnPlay.disabled = true;
+    btnPause.disabled = true;
+    btnMute.disabled = true;
+    btnSpeed.disabled = true;
 
-    btnPause.addEventListener("click", () => {
-        mainVideo.pause();
-    });
+    btnPlay.textContent = "Play (YouTube)";
+    btnPause.textContent = "Pause (Disabled)";
+    btnMute.textContent = "Mute (Disabled)";
+    btnSpeed.textContent = "Speed (Disabled)";
 
-    btnMute.addEventListener("click", () => {
-        mainVideo.muted = !mainVideo.muted;
-        btnMute.textContent = mainVideo.muted ? "Unmute" : "Mute";
-    });
-
-    let speeds = [0.5, 1, 1.5, 2, 3, 4];
-    let speedIndex = 1;
-
-    btnSpeed.addEventListener("click", () => {
-        speedIndex = (speedIndex + 1) % speeds.length;
-        mainVideo.playbackRate = speeds[speedIndex];
-        btnSpeed.textContent = `Speed: ${speeds[speedIndex]}x`;
-    });
-
-    // FULLSCREEN + LANDSCAPE LOCK
+    // FULLSCREEN (still works!)
     btnFullscreen.addEventListener("click", async () => {
         try {
             if (!document.fullscreenElement) {
                 await mainVideo.requestFullscreen();
 
-                // Try landscape mode (mobile)
                 if (screen.orientation && screen.orientation.lock) {
-                    try {
-                        await screen.orientation.lock("landscape");
-                    } catch {}
+                    try { await screen.orientation.lock("landscape"); } catch {}
                 }
             } else {
                 await document.exitFullscreen();
-
                 if (screen.orientation.unlock) {
                     screen.orientation.unlock();
                 }
