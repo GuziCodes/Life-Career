@@ -1,0 +1,315 @@
+/* ============================================================
+   BASE STYLING FOR BOTH THEMES
+============================================================ */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    padding: 40px 25px;
+    transition: background 0.4s, color 0.4s;
+}
+
+/* HEADER */
+.page-header {
+    text-align: center;
+    margin-bottom: 45px;
+    position: relative;
+}
+
+/* Dark/Light Toggle Button (Top Right) */
+#theme-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 15px 25px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #6e35e8;
+    color: white;
+    font-weight: 600;
+    transition: 0.25s;
+    box-shadow: 0 0 8px rgba(149, 96, 255, 0.5);
+}
+
+#theme-toggle:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+/* Blog Button (Top Left) */
+.blog-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 15px 25px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #6e35e8, #8f5cff);
+    color: white;
+    font-weight: 600;
+    transition: 0.25s;
+    box-shadow: 0 0 8px rgba(149, 96, 255, 0.5);
+}
+
+.blog-button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+/* ============================================================
+   YOUTUBE LAYOUT
+============================================================ */
+
+.main-layout {
+    display: flex;
+    gap: 25px;
+    max-width: 1400px;
+    margin: auto;
+}
+
+/* MAIN VIDEO PLAYER (CENTER) */
+.main-player {
+    flex: 3;
+}
+
+#mainVideo {
+    width: 100%;
+    border-radius: 14px;
+    background: black;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+#mainVideoTitle {
+    margin: 14px 0;
+    font-size: 22px;
+    font-weight: 600;
+    background: linear-gradient(to right, #b08cff, #5cb8ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main-controls {
+    margin-top: 10px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 18px;
+    margin: 6px 5px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    transition: 0.25s ease;
+}
+
+.play, .pause, #mainPlay, #mainPause {
+    background: linear-gradient(135deg, #3c6aff, #2f57d8);
+}
+
+.mute, .speed, .fullscreen, #mainMute, #mainSpeed, #mainFullscreen {
+    background: linear-gradient(135deg,#8f5cff,#6e35e8);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.15);
+} 
+
+.sidebar {
+    flex: 1;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+
+body.dark .sidebar::-webkit-scrollbar {
+    width: 10px;
+}
+
+body.dark .sidebar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+body.dark .sidebar::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #8f5cff, #6e35e8);
+    border-radius: 10px;
+}
+
+body.dark .sidebar::-webkit-scrollbar-thumb:hover {
+    filter: brightness(1.25);
+}
+
+body.light .sidebar::-webkit-scrollbar {
+    width: 10px;
+}
+
+body.light .sidebar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.07);
+    border-radius: 10px;
+}
+
+body.light .sidebar::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #6e35e8, #8f5cff);
+    border-radius: 10px;
+}
+
+body.light .sidebar::-webkit-scrollbar-thumb:hover {
+    filter: brightness(1.2);
+}
+
+.sidebar-title {
+    margin-bottom: 12px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.video-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.video-item {
+    display: flex;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.05);
+    transition: 0.2s ease;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.video-item:hover {
+    transform: scale(1.02);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.thumb {
+    width: 120px;
+    height: 70px;
+    border-radius: 10px;
+    object-fit: cover;
+    background: #000;
+}
+
+.video-item .info p {
+    margin: 0;
+    margin-top: 5px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.nav-button {
+    background: linear-gradient(135deg, #6e35e8, #8f5cff);
+    padding: 14px 42px;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    color: white;
+    box-shadow: 0 0 14px rgba(149, 96, 255, 0.55);
+}
+
+.nav-button:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.15);
+}
+
+:root {
+    --bg: #0d0e12;
+    --text: #d2d2d2;
+    --card-bg: rgba(34, 34, 40, 0.55);
+    --border-color: rgba(124, 96, 255, 0.35);
+    --border-hover: rgba(146, 113, 255, 0.6);
+}
+
+body.dark {
+    background: var(--bg);
+    color: var(--text);
+}
+
+body.dark .video-item {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.12);
+}
+
+body.dark .video-item:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+body.dark #theme-toggle {
+    background: #6e35e8;
+}
+
+
+body.light {
+    background: #f5f6ff;
+    color: #393939;
+}
+
+body.light .sidebar-title,
+body.light #mainVideoTitle {
+    background: none;
+    -webkit-text-fill-color: #3f2d73;
+}
+
+body.light .video-item {
+    background: rgba(0,0,0,0.05);
+}
+
+body.light .video-item:hover {
+    background: rgba(0,0,0,0.10);
+}
+
+body.light #theme-toggle {
+    background: #3f2d73;
+}
+
+@media (max-width: 800px) {
+
+    body {
+        padding: 20px 15px;
+    }
+
+    .main-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        max-height: none;
+        order: 3;
+    }
+
+    #theme-toggle, .blog-button {
+        position: static;
+        display: inline-block;
+        margin: 10px 5px;
+    }
+
+    .page-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding-top: 20px;
+    }
+
+    .thumb {
+        width: 100px;
+        height: 60px;
+    }
+}
